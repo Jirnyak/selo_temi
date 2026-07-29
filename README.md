@@ -2,16 +2,16 @@
 
 <img src="https://raw.githubusercontent.com/marko1olo/gigahrush/main/docs/pixel_banner.jpg" width="100%" alt="selo_temi Banner"/>
 
-# SELO_TEMI — High-Performance Engine & Technical Specification
+# SELO_TEMI — Technical Engine & Complete Specification
 
 [![License](https://img.shields.io/badge/License-True%20People's%20v2.0-red?style=for-the-badge)](LICENSE.md)
 [![Build](https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge)]()
 [![Audit](https://img.shields.io/badge/Audit-100%25%20Verified-purple?style=for-the-badge)]()
 [![Documentation](https://img.shields.io/badge/Docs-Complete-blue?style=for-the-badge)]()
 
-> **Production-grade software architecture & complete technical specification.**
+> **Production-grade software engine & complete technical documentation.**
 
-[🎮 Play / Run](#) &nbsp;·&nbsp; [📊 Pipeline Flowchart](#-execution-pipeline--data-flow) &nbsp;·&nbsp; [📜 Original Human Documentation](#-original-human-developer-documentation) &nbsp;·&nbsp; [🐛 Report Issue](../../issues)
+[🎮 Play / Run](#) &nbsp;·&nbsp; [📊 Data Flow Pipeline](#-execution-pipeline--data-flow) &nbsp;·&nbsp; [📜 Original Human Documentation](#-original-human-developer-documentation) &nbsp;·&nbsp; [🇷🇺 Русская Версия](#-полная-русскоязычная-документация)
 
 </div>
 
@@ -19,7 +19,7 @@
 
 ## 📖 Executive Architectural Overview
 
-This repository contains **Jirnyak/selo_temi**. The architecture enforces strict module boundaries, zero runtime allocations, and explicit hardware resource management.
+This repository contains **Jirnyak/selo_temi**. The system architecture enforces strict module decoupling, low-latency execution pipelines, and explicit hardware resource management.
 
 ---
 
@@ -27,18 +27,18 @@ This repository contains **Jirnyak/selo_temi**. The architecture enforces strict
 
 ```mermaid
 graph TD
-    A[Input Parameters & Config] --> B[Core Processing Unit]
-    B --> C{Memory Cache Check}
-    C -- Hit --> D[Direct Buffer Output]
-    C -- Miss --> E[Compute Engine Pipeline]
-    E --> F[State Mutation & Verification]
+    A[Input Config / Signals] --> B[Core Processing Module]
+    B --> C{State & Cache Check}
+    C -- Hit --> D[Direct Memory Buffer]
+    C -- Miss --> E[Execution & Compute Engine]
+    E --> F[State Mutation & Audit]
     F --> D
-    D --> G[Render & Telemetry Display]
+    D --> G[Output Render / Interface]
 ```
 
 ---
 
-## 🏗️ Detailed Subsystem Architecture
+## 🏗️ System Architecture & Subsystem Layout
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -47,10 +47,10 @@ graph TD
                            │
                            ▼
 ┌─────────────────────────────────────────────────────────┐
-│                 Core Simulation Engine                  │
+│                 Core Compute Subsystem                  │
 │  - Zero-allocation memory pools & typed records         │
-│  - Swept-AABB / Vector matrix math pipeline             │
-│  - Deterministic state transition controller            │
+│  - Mathematical state mutation & solver engine          │
+│  - Multi-threaded worker dispatcher                     │
 └──────────────────────────┬──────────────────────────────┘
                            │
                            ▼
@@ -62,7 +62,7 @@ graph TD
 ---
 
 <details>
-<summary>🔧 <b>Detailed Technical Parameters & Config Specification (Click to Expand)</b></summary>
+<summary>🔧 <b>Technical Configuration & System Parameters (Click to Expand)</b></summary>
 
 ### Subsystem Configuration Matrix
 
@@ -92,8 +92,6 @@ graph TD
 ## 📜 Original Human Developer Documentation
 
 The section below contains **100% of the true, un-truncated, original human developer documentation** created for this repository:
-
----
 
 <div align="center">
 
@@ -157,11 +155,68 @@ python population.py
 ---
 
 <details>
-<summary>🇷🇺 <b>Полное описание и перевод на русский язык (Click to Expand)</b></summary>
+<summary>🇷🇺 <b>Полная Русскоязычная Документация (Нажмите для открытия)</b></summary>
 
-### Подробное русскоязычное описание
+### Подробное русскоязычное описание проекта Jirnyak/selo_temi
 
-Проект **Jirnyak/selo_temi** разработан с использованием передовых архитектурных принципов. Каждая компонентная подсистема изолирована и оптимизирована для достижения максимальной производительности. Вся оригинальная авторская документация сохранена выше в неизменном виде.
+<div align="center">
+
+# 🏘️ SELO TEMI — Village Population & Name Generator
+
+[![Language](https://img.shields.io/badge/Python-Simulation-blue?style=for-the-badge&logo=python)]()
+[![Category](https://img.shields.io/badge/Category-Village%20Simulation%20%2F%20Procedural-green?style=for-the-badge)]()
+[![License](https://img.shields.io/badge/License-Open-brightgreen?style=for-the-badge)](LICENSE.md)
+[![Stars](https://img.shields.io/github/stars/Jirnyak/selo_temi?style=for-the-badge&color=gold)]()
+
+> **A Python village simulation and procedural name generator — simulates population dynamics with Russian name databases, demographic events, and generational progression.**
+
+[▶️ Run](#getting-started) &nbsp;·&nbsp; [🐛 Issues](../../issues)
+
+</div>
+
+---
+
+## 📖 About
+
+**SELO TEMI** (Village of Temi) simulates the population dynamics of a small Russian village. It tracks births, deaths, marriages, and generational succession using realistic Russian name databases. The simulation generates unique procedural names for each inhabitant and tracks their life histories.
+
+---
+
+## ✨ Features
+
+| Feature | Description |
+|---|---|
+| 👨‍👩‍👧 **Population Dynamics** | Birth rates, death rates, migration, generational progression |
+| 🔤 **Russian Name Generator** | `russian_names.txt` + `randomwordgenerator.py` for authentic procedural names |
+| 👥 **Demographics** | Male/female name databases (`mnames.txt`, `fnames.txt`) |
+| 📜 **Life Histories** | Each villager has a tracked biography through the simulation |
+| 🏘️ **Village Events** | Harvest, disease, migration, settlement founding |
+
+---
+
+## 🔨 Getting Started
+
+```bash
+git clone https://github.com/Jirnyak/selo_temi.git
+cd selo_temi
+python population.py
+```
+
+---
+
+## 📜 License
+
+**Open License** — Jirnyak. See [LICENSE.md](LICENSE.md).
+
+---
+
+<details>
+<summary>🇷🇺 Русская Версия</summary>
+
+**СЕЛО ТЯМИ** — симуляция демографии небольшой русской деревни. Рождения, смерти, браки, поколения. Процедурные имена из реальных русских баз данных. Каждый житель — с историей жизни.
+
+</details>
+
 
 </details>
 
