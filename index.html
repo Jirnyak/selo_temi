@@ -3,33 +3,263 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>selo_temi — Official Technical Showcase</title>
-    <meta name="description" content="Agricultural production and local village economy simulation.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <meta name="description" content="Selo Temi - Village of Darkness. A premium horror experience.">
+    <title>Selo Temi</title>
     <style>
-        :root { --bg: #1c1917; --accent: #f97316; }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background: var(--bg); color: #f1f5f9; font-family: 'Inter', sans-serif; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; overflow-x: hidden; }
-        .hero-box { max-width: 900px; width: 100%; text-align: center; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 3rem 2rem; backdrop-filter: blur(10px); box-shadow: 0 0 50px rgba(0,0,0,0.8), 0 0 30px var(--accent); }
-        h1 { font-size: 3.5rem; font-weight: 900; color: #fff; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem; text-shadow: 0 0 20px var(--accent); }
-        .tag { display: inline-block; background: rgba(255,255,255,0.05); border: 1px solid var(--accent); color: var(--accent); font-weight: 700; padding: 0.4rem 1.2rem; border-radius: 4px; font-size: 0.85rem; margin-bottom: 1.5rem; letter-spacing: 1px; }
-        p.desc { font-size: 1.2rem; color: #94a3b8; max-width: 700px; margin: 0 auto 2.5rem; line-height: 1.6; }
-        .btn-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-        .btn { padding: 1rem 2.2rem; background: var(--accent); color: #000; font-weight: 700; text-decoration: none; border-radius: 6px; font-size: 1rem; transition: all 0.3s; text-transform: uppercase; }
-        .btn:hover { background: #fff; box-shadow: 0 0 30px #fff; transform: translateY(-2px); }
-        .btn-sec { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.2); }
-        .btn-sec:hover { background: rgba(255,255,255,0.1); }
+        :root {
+            --bg-color: #030303;
+            --text-color: #d4d4d4;
+            --accent: #8b0000;
+            --candle: #ffaa00;
+            --glass-bg: rgba(20, 20, 20, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Cinzel', 'Georgia', serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Ambient Noise / Film Grain */
+        .noise {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.04;
+            background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');
+        }
+
+        /* Flickering Candle Light Overlay */
+        .candle-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none;
+            background: radial-gradient(circle at 50% 50%, transparent 20%, #000 80%);
+            animation: flicker 4s infinite alternate;
+            z-index: 10;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 0.9; }
+            5% { opacity: 0.85; }
+            10% { opacity: 0.95; }
+            15% { opacity: 0.9; }
+            50% { opacity: 0.7; }
+            55% { opacity: 0.95; }
+            60% { opacity: 0.8; }
+            100% { opacity: 0.85; }
+        }
+
+        header {
+            margin-top: 15vh;
+            text-align: center;
+            z-index: 20;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 5rem;
+            letter-spacing: 15px;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 170, 0, 0.3), 0 0 20px rgba(139, 0, 0, 0.5);
+            animation: textFlicker 3s infinite;
+        }
+
+        @keyframes textFlicker {
+            0%, 100% { text-shadow: 0 0 10px rgba(255, 170, 0, 0.3), 0 0 20px rgba(139, 0, 0, 0.5); }
+            50% { text-shadow: 0 0 5px rgba(255, 170, 0, 0.1), 0 0 15px rgba(139, 0, 0, 0.3); }
+        }
+
+        p.subtitle {
+            font-size: 1.2rem;
+            letter-spacing: 5px;
+            margin-top: 10px;
+            color: #888;
+            text-transform: uppercase;
+        }
+
+        main {
+            margin-top: 10vh;
+            width: 80%;
+            max-width: 1000px;
+            z-index: 20;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            position: relative;
+        }
+
+        /* Glassmorphism Cards */
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.03), transparent);
+            transform: skewX(-20deg);
+            transition: left 0.7s ease;
+        }
+
+        .card:hover::before {
+            left: 150%;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(139, 0, 0, 0.2);
+            border-color: rgba(139, 0, 0, 0.3);
+        }
+
+        .card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 0.5rem;
+        }
+
+        .card p {
+            line-height: 1.6;
+            color: #aaa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 0.95rem;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.8rem 2rem;
+            color: var(--text-color);
+            text-decoration: none;
+            border: 1px solid var(--accent);
+            border-radius: 5px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--accent);
+            color: #fff;
+            box-shadow: 0 0 15px var(--accent);
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 2rem 0;
+            text-align: center;
+            z-index: 20;
+            color: #555;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+        }
+
+        /* Fog Animation */
+        .fog {
+            position: fixed;
+            width: 200vw;
+            height: 100vh;
+            bottom: 0;
+            left: 0;
+            background: url('data:image/svg+xml;utf8,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22fog%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.01%22 numOctaves=%225%22/%3E%3CfeColorMatrix type=%22matrix%22 values=%221 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.5 0%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23fog)%22 opacity=%220.15%22/%3E%3C/svg%3E') repeat-x;
+            background-size: 100% auto;
+            animation: fogMove 60s linear infinite;
+            z-index: 5;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+
+        @keyframes fogMove {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50vw); }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; letter-spacing: 8px; }
+            .card { padding: 1.5rem; }
+        }
     </style>
+    <!-- Premium Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="hero-box">
-        <h1>selo_temi</h1>
-        <div class="tag">RURAL ECONOMIC SIMULATOR</div>
-        <p class="desc">Agricultural production and local village economy simulation.</p>
-        <div class="btn-group">
-            <a href="https://github.com/Jirnyak/selo_temi" class="btn" target="_blank">🚀 Open GitHub Repo</a>
-            <a href="https://github.com/Jirnyak/selo_temi#readme" class="btn btn-sec" target="_blank">📖 Read Spec</a>
+    <div class="noise"></div>
+    <div class="candle-overlay"></div>
+    <div class="fog"></div>
+
+    <header>
+        <h1>SELO TEMI</h1>
+        <p class="subtitle">The Village of Darkness</p>
+    </header>
+
+    <main>
+        <div class="card">
+            <h2>The Lore</h2>
+            <p>Forgotten by time, Selo Temi stands as a monument to the unseen. Shadows coalesce in the cobblestone streets, and the whispers of the ancient ones ride the chilling winds. Do you dare step into the abyss?</p>
+            <a href="#" class="btn">Uncover Secrets</a>
         </div>
-    </div>
+        <div class="card">
+            <h2>The Ritual</h2>
+            <p>The candle flickers, casting long, unnatural shadows. The glass shatters under the weight of an invisible presence. A premium horror experience built with darkness and fear woven into its very code.</p>
+            <a href="#" class="btn">Join Ritual</a>
+        </div>
+        <div class="card">
+            <h2>The Cursed Code</h2>
+            <p>No light escapes this repository. Crafted in the deepest pits with raw styling, entirely devoid of modern comfort. The aesthetics of horror captured in pure, vanilla darkness.</p>
+            <a href="#" class="btn">View Source</a>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2026 Selo Temi. Do not look behind you.
+    </footer>
+
+    <script>
+        // Subtle interactive shadows based on mouse movement
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.card');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const cardX = rect.left + rect.width / 2;
+                const cardY = rect.top + rect.height / 2;
+                
+                const angleX = (e.clientY - cardY) / 30;
+                const angleY = (e.clientX - cardX) / -30;
+                
+            });
+        });
+    </script>
 </body>
 </html>
