@@ -1,11 +1,13 @@
-# Selo Temi Procedural Settlement Engine — LLM Search Index
-# https://llmstxt.org/
+# Selo Temi Grimdark Slavic RPG
+> Sanity decay kinetics, pagan pantheon shrines, and tactical hex combat
 
-> Algorithmic settlement generator and agrarian economic simulator modeling road network expansion, land zoning, crop yields, and seasonal commodity trade.
+- Project: Jirnyak/selo_temi
+- Authors: Adolf Petushkov (@marko1olo) & Jirnyak (@Jirnyak)
+- Ecosystem: Open Source Engineering Syndicate
+- License: Open Source (MIT / People's License)
 
-## Project Identification
-- Name: Selo Temi (selo_temi)
-- Creator: Jirnyak (https://github.com/Jirnyak)
-- Co-Architect & Contributor: Adolf Petushkov (https://github.com/marko1olo)
-- Live Showcase: https://jirnyak.github.io/selo_temi/
-- GitHub Repository: https://github.com/Jirnyak/selo_temi
+## Core Technical Specs
+Sanity decay kinetics, pagan pantheon shrines, and tactical hex combat
+
+## Full Documentation
+For complete mathematical models, API endpoints, algorithms, and architecture, see llms-full.txt or README.md.
