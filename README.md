@@ -237,6 +237,73 @@ python population.py
 
 ---
 
+
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/marko1olo/gigahrush/main/docs/selo_temi_rpg.jpg" width="100%" alt="Selo Temi Grimdark Slavic Folk RPG & Pagan Ritual Shrines"/>
+
+</div>
+
+---
+
+## 🌲 Slavic Pagan Occultism, Sanity Kinetics & Tactical Combat
+
+Selo Temi blends grimdark Slavic folklore, psychological horror, and turn-based survival mechanics in an isolated 19th-century village caught between ancient pagan gods and existential decay:
+
+```mermaid
+graph TD
+    A[Village Node Exploration: Izba, Shrine, Banya, Forest] --> B[Pagan Shrine Rituals: Veles, Perun, Mokosh]
+    B --> C[Sanity Decay & Moral Corruption FSM]
+    C -->|Sanity < 20%| D[Hallucinatory Phantasm Encounters]
+    C -->|Sanity Nominal| E[Turn-Based Hex Tactical Combat]
+    E --> F[Localized Trauma & Bleed Physics: Head, Torso, Limbs]
+    F --> G[Herbal Alchemy & Occult Blood Crafting]
+    G -->|Tinctures & Bone Charms| A
+```
+
+### ⚡ 1. Psychological Sanity Decay & Hallucination Trigger (C++ / JS)
+
+Sanity $S(t) \in [0, 100]$ decays quadratically during nocturnal forest exploration, mitigated only by birch torchlight and consecrated pagan shrines:
+
+$$rac{dS}{dt} = -\kappa_{	ext{dark}} \cdot \left(1 - rac{L_{	ext{torch}}}{100}ight)^2 + \sum_{	ext{shrines}} \Omega_{	ext{favor}} \cdot e^{-\lambda t}$$
+
+```javascript
+// Production RPG Character Sanity & Horror Stress Resolver
+export function processHorrorTurn(character, environment) {
+    let sanityLoss = 0;
+    
+    // Darkness trauma
+    if (environment.lightLevel < 30) {
+        sanityLoss += Math.pow((30 - environment.lightLevel) / 10, 2);
+    }
+    
+    // Corpse / Eldritch proximity
+    if (environment.occultAnomalyPresent) {
+        sanityLoss += 12.5 * (1.0 - character.faithResistance / 100);
+    }
+    
+    character.sanity = Math.max(0, character.sanity - sanityLoss);
+    
+    // Hallucinatory state transitions
+    return {
+        currentSanity: character.sanity,
+        hallucinationTier: character.sanity < 15 ? 'DEATH_PARANOIA' :
+                           character.sanity < 40 ? 'WHISPERING_BIRCHES' : 'NOMINAL',
+        accuracyPenaltyPercent: character.sanity < 30 ? (30 - character.sanity) * 1.5 : 0
+    };
+}
+```
+
+---
+
+### 🪵 2. Slavic Pagan Shrine Favors & Offering System
+
+| Deity Shrine | Required Blood / Offering | Granted Combat Buff | Occult Penalty / Curse |
+| :--- | :--- | :--- | :--- |
+| **Велес (Veles)** | Silver coin + Forest wolf pelt | $+35\%$ Night vision & beast pacification | $-15\%$ Sanity recovery during daytime |
+| **Перун (Perun)** | Cold forged iron + Oak ash | $+50\%$ Axe critical strike & lightning shock | Double damage taken from blunt trauma |
+| **Мокошь (Mokosh)** | Spun linen thread + Fresh milk | $+100\%$ Wound clotting & infection immunity | Cannot use poisoned weapon coatings |
+
 ## 📜 License & Maintainer Standards
 
 Distributed under the **True People's License v2.0** / Open License — Authors: **Jirnyak** & **Adolf Petushkov** (2026). Zero paywalls, zero privatization. Maintainers, contributors, and security auditors are welcome!
