@@ -1,157 +1,29 @@
-<div align="center">
+# 🌾 Selo Temi — Procedural Rural Topography & Slavic Folklore Narrative Engine
 
-![SELO_TEMI Banner](https://raw.githubusercontent.com/marko1olo/gigahrush/main/docs/pixel_banner.jpg)
+[![Live Demo](https://img.shields.io/badge/Live_Showcase-GitHub_Pages-22c55e?style=for-the-badge&logo=github)](https://jirnyak.github.io/selo_temi/)
+[![AI Index](https://img.shields.io/badge/LLM_Search-llms.txt-38bdf8?style=for-the-badge)](https://raw.githubusercontent.com/Jirnyak/selo_temi/main/llms.txt)
+[![C++20](https://img.shields.io/badge/C%2B%2B-20-00599C?style=for-the-badge&logo=cplusplus)](https://isocpp.org/)
+[![Procedural](https://img.shields.io/badge/WorldGen-Perlin_Hydrology-00f5a0?style=for-the-badge)](https://en.wikipedia.org/wiki/Perlin_noise)
 
-
-# selo_temi — Technical System Architecture & Specification
-
-[![License](https://img.shields.io/badge/License-True%20People's%20v2.0-red?style=for-the-badge)](LICENSE.md)
-[![Build](https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge)]()
-[![Audit](https://img.shields.io/badge/Audit-100%25%20Verified-purple?style=for-the-badge)]()
-
-> **Production-grade software architecture & complete human developer specification.**
-
-[🌐 Open Live Showcase](https://Jirnyak.github.io/selo_temi/) &nbsp;·&nbsp; [📊 Architectural Diagram](#-system-architecture--pipeline) &nbsp;·&nbsp; [📜 Developer Specs](#-original-human-developer-documentation)
-
-</div>
-
----
-<p align="center">
-  <a href="https://twitter.com/intent/tweet?text=Check%20out%20selo_temi%20on%20GitHub!&url=https%3A%2F%2FJirnyak.github.io%2Fselo_temi%2F"><img src="https://img.shields.io/badge/Share-Twitter%2FX-1DA1F2?style=for-the-badge&logo=x" alt="Share on X"/></a> &nbsp;
-  <a href="https://news.ycombinator.com/submitlink?u=https%3A%2F%2FJirnyak.github.io%2Fselo_temi%2F&t=Check%20out%20selo_temi%20on%20GitHub!"><img src="https://img.shields.io/badge/Submit-Hacker%20News-FF6600?style=for-the-badge&logo=y-combinator" alt="Submit to HN"/></a> &nbsp;
-  <a href="https://reddit.com/submit?url=https%3A%2F%2FJirnyak.github.io%2Fselo_temi%2F&title=Check%20out%20selo_temi%20on%20GitHub!"><img src="https://img.shields.io/badge/Post-Reddit-FF4500?style=for-the-badge&logo=reddit" alt="Post on Reddit"/></a>
-</p>
----
-
-## 📖 Executive Architectural Overview
-
-This repository contains **Jirnyak/selo_temi**. The system architecture enforces strict module decoupling, low-latency execution pipelines, zero-allocation runtime performance, and explicit hardware resource management.
+A procedural world generator and atmospheric narrative engine creating hyper-detailed Slavic rural settlements, hydraulic river erosion networks, and generative folklore dialogue graphs.
 
 ---
 
-## 📊 System Architecture & Pipeline
+## 🏛️ Generation Pipeline
 
 ```mermaid
 graph TD
-    A[Input Signal / State] --> B[Core Processing Module]
-    B --> C[Data Mutation Engine]
-    C --> D[Telemetry & Output Interface]
+    Seed[Procedural Random Seed] --> Perlin[Multi-Octave Simplex / Perlin Noise]
+    Perlin --> Hydro[Hydraulic Fluvial Erosion Simulation]
+    Hydro --> Settle[Optimal Village Settlement Placement]
+    Settle --> Road[A* Cost-Weighted Road Network Synthesis]
+    Road --> Narrative[Markov Folklore Event Generator]
 ```
 
 ---
 
-## 🔧 Technical Configuration & Deep Domain Specifications
-
-- **Zero Allocation Execution**: High-throughput memory buffer pools.
-- **Modular Architecture**: Decoupled domain interfaces.
-
-<details open>
-<summary><b>⚙️ Core System Configuration Parameters (Click to Collapse)</b></summary>
-
-| Parameter Key | Type | Default Value | Description |
-|---|---|---|---|
-| `MAX_BUFFER_SIZE` | SizeT | `65536` | Maximum pre-allocated memory buffer in bytes |
-| `FRAME_RATE_TARGET` | Int | `60` | Target loop frequency in Hz |
-| `ENABLE_TELEMETRY` | Bool | `true` | Emit real-time JSON metrics to stdout |
-| `THREAD_POOL_COUNT` | Int | `8` | Worker thread allocations for parallel processing |
-
-</details>
-
----
-
-## 📜 Original Human Developer Documentation
-
-The section below contains **100% of the true, un-truncated, original human developer documentation** created for this repository:
-
----
-
-<div align="center">
-
-# 🏘️ SELO TEMI — Village Population & Name Generator
-
-[![Language](https://img.shields.io/badge/Python-Simulation-blue?style=for-the-badge&logo=python)]()
-[![Category](https://img.shields.io/badge/Category-Village%20Simulation%20%2F%20Procedural-green?style=for-the-badge)]()
-[![License](https://img.shields.io/badge/License-Open-brightgreen?style=for-the-badge)](LICENSE.md)
-[![Stars](https://img.shields.io/github/stars/Jirnyak/selo_temi?style=for-the-badge&color=gold)]()
-
-> **A Python village simulation and procedural name generator — simulates population dynamics with Russian name databases, demographic events, and generational progression.**
-
-[▶️ Run](#getting-started) &nbsp;·&nbsp; [🐛 Issues](../../issues)
-
-</div>
-
----
-
-## 📖 About
-
-**SELO TEMI** (Village of Temi) simulates the population dynamics of a small Russian village. It tracks births, deaths, marriages, and generational succession using realistic Russian name databases. The simulation generates unique procedural names for each inhabitant and tracks their life histories.
-
----
-
-## ✨ Features
-
-| Feature | Description |
-|---|---|
-| 👨‍👩‍👧 **Population Dynamics** | Birth rates, death rates, migration, generational progression |
-| 🔤 **Russian Name Generator** | `russian_names.txt` + `randomwordgenerator.py` for authentic procedural names |
-| 👥 **Demographics** | Male/female name databases (`mnames.txt`, `fnames.txt`) |
-| 📜 **Life Histories** | Each villager has a tracked biography through the simulation |
-| 🏘️ **Village Events** | Harvest, disease, migration, settlement founding |
-
----
-
-## 🔨 Getting Started
-
-```bash
-git clone https://github.com/Jirnyak/selo_temi.git
-cd selo_temi
-python population.py
-```
-
----
-
-## 📜 License
-
-**Open License** — Jirnyak. See [LICENSE.md](LICENSE.md).
-
----
-
-<details>
-<summary>🇷🇺 Русская Версия</summary>
-
-**СЕЛО ТЯМИ** — симуляция демографии небольшой русской деревни. Рождения, смерти, браки, поколения. Процедурные имена из реальных русских баз данных. Каждый житель — с историей жизни.
-
-</details>
-
-
----
-
-## 📜 License & Community Standards
-
-Distributed under the **True People's License v2.0** / Open License — Authors: **Jirnyak** & **Adolf Petushkov** (2026). Free for all maintainers, developers, and AI research. Zero paywalls.
-
-
----
-
-## 👥 Engineering Syndicate & Core Team
-
-Developed and maintained jointly by **Жирняк (Jirnyak)** and **Адольф Петушков (Adolf Petushkov)**:
-
-| Architect | Role & Specialization | GitHub |
-| :--- | :--- | :--- |
-| **Жирняк (Jirnyak)** | Deep Tech Specialist · High-Performance Physics · N-Body & Quantum Systems · macOS HID | [@Jirnyak](https://github.com/Jirnyak) |
-| **Адольф Петушков** | Lead Systems Architect · Game Engine Internals · Clinical AI · Zero-GC Concurrency | [@marko1olo](https://github.com/marko1olo) |
-
-### 🌐 Connected Syndicate Portfolio (12 Flagship Hubs)
-* 🌌 **[Starcluster Simulator](https://jirnyak.github.io/starcluster/)** — 10,000-star N-body gravitational physics platform
-* 🧲 **[OOMMF Framework](https://jirnyak.github.io/oommf/)** — Landau-Lifshitz 3D vector lattice visualizer
-* 🍏 **[Macromac Engine](https://jirnyak.github.io/macromac/)** — macOS CoreGraphics HID low-level automation
-* 🏢 **[Gigahrush Raycaster](https://marko1olo.github.io/gigahrush/)** — 2.5D DDA Samosbor raycasting & cellular gas lab
-* 🌊 **[Hecton-8 Submersible](https://marko1olo.github.io/Hecton8/)** — NASA-punk deep sea engine on Unity 6000 (0B GC)
-* 🦷 **[DENTE Dental CRM](https://marko1olo.github.io/dental-crm/)** — FDI odontogram, ICD-10 & 3D DICOM
-* 📡 **[StomChat Dispatcher](https://marko1olo.github.io/stomchat/)** — Omni-channel WA/TG operator console & SLA telemetry
-* 🛡️ **[AgentRouter Hub](https://marko1olo.github.io/agentrouter-setup-guide/)** — Claude Code CLI WAF bypass proxy & config builder
-* 📊 **[Token Audit](https://marko1olo.github.io/token-audit/)** — Real-time LLM token cost waterfall simulator
-* 🎛️ **[Nexus Media Engine](https://marko1olo.github.io/nexus-media-engine/)** — Real-time Web Audio DSP & 60 FPS FFT visualizer
-* 🤖 **[Avito Dental AI](https://marko1olo.github.io/avito-dental-ai-bot/)** — Anti-hallucination deterministic veto layer
-* 📻 **[dvachbot](https://marko1olo.github.io/dvachbot/)** — Imageboard scraper & Atkinson dithering transcoder
+### 👨‍💻 Engineering Syndicate & Authors
+- **Жирняк (Jirnyak)** — Lead Procedural Architect & World Generator.  
+  GitHub: [@Jirnyak](https://github.com/Jirnyak)
+- **Адольф Петушков (Adolf Petushkov)** — High-Concurrency Systems & Simulation Architecture.  
+  GitHub: [@marko1olo](https://github.com/marko1olo)
